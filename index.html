@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Platformer</title>
+  <style>body { margin: 0; padding: 0; }</style>
+  <script src="./src/phaser.min.js"></script>
+  <script src="./src/scene/Loading.js"></script>
+  <script src="./src/scene/Play.js"></script>
+  <script src="./src/sprite/Hero.js"></script>
+  <script src="./src/sprite/Spider.js"></script>
+</head>
+<body>
+  <script>
+    (() => {
+      const config = {
+        width: 960,
+        height: 600,
+        type: Phaser.AUTO,
+        scale: {
+          mode: Phaser.Scale.FIT,
+          autoCenter: Phaser.Scale.CENTER_BOTH,
+        },
+        physics: {
+          default: 'arcade',
+          arcade: {
+            gravity: { y: 1200 },
+            debug: false,
+          }
+        },
+        antialias: true,
+        scene: [LoadingScene, PlayScene]
+      }
+
+      const game = new Phaser.Game(config);
+    })();
+  </script>
+</body>
+</html>
